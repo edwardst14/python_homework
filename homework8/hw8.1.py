@@ -20,11 +20,12 @@ class Animal:
                 if self.end != True:
                     print("\nNot quite, try again!\n"  \
                         "Hint 3: I drink water from a trunk")
-                    self.guessCheck(type)
-                else:
-                    print("So close! The answer is: elephant")
-                    self.end = True
-                    continue
+                    self.end = self.guessCheck(type)
+                    
+                    if self.end != True:
+                        print("So close! The answer is: elephant")
+                        self.end = True
+                        continue
             else:
                 continue
 
@@ -41,11 +42,12 @@ class Animal:
                 if self.end != True:
                     print("\nNot quite, try again!\n"  \
                         "Hint 3: My stripes can be seen on my skin")
-                    self.guessCheck(type)
-                else:
-                    print("Sorry, no more hints! The answer is: tiger")
-                    self.end = True
-                    continue
+                    self.end = self.guessCheck(type)
+
+                    if self.end != True:
+                        print("Sorry, no more hints! The answer is: tiger")
+                        self.end = True
+                        #continue
             else:
                 continue
 
@@ -62,11 +64,12 @@ class Animal:
                 if self.end != True:
                     print("\nNot quite, try again!\n"  \
                         "Hint 3: I see very well in the dark")
-                    self.guessCheck(type)
-                else:
-                    print("That was your last hint. The answer is: bat")
-                    self.end = True
-                    continue
+                    self.end = self.guessCheck(type)
+
+                    if self.end != True:
+                        print("That was your last hint. The answer is: bat")
+                        self.end = True
+                        continue
             else:
                 continue
 
@@ -75,9 +78,9 @@ class Animal:
         print(self.statement)
         if self.type == "elephant":
             self.elephantHints()
-        elif type == "tiger":
+        elif self.type == "tiger":
             self.tigerHints()
-        elif type == "bat":
+        elif self.type == "bat":
             self.batHints()
 
  ###############################################################################################   
@@ -89,7 +92,7 @@ class Animal:
         elif self.type == "tiger" and guess == "tiger":
             print("You got it, I'm a tiger!!")
             return True
-        else:
+        elif self.type == "bat" and guess == "bat":
             print("Alright!! I'm a bat!")
             return True
 
